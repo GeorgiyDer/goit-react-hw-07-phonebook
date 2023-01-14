@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { filterContact } from 'redax/filter.slice';
+import { filterContact } from 'redax/contacts/filter.slice';
 import React from 'react'
 import { StyledLable, StyledInput } from './filter.styled'
 

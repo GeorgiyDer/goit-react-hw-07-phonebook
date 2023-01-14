@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { addContact } from 'redax/contacts.slice';
+import * as contactsOperations from '../../redax/contacts/contactsOperations'
 import { useState } from 'react';
 import { nanoid } from 'nanoid'
 import { StyledDivForm, StyledForm, StyledLable, StyledButton, StyledInput } from './form.styled'
@@ -7,7 +7,7 @@ import { StyledDivForm, StyledForm, StyledLable, StyledButton, StyledInput } fro
 
 export const Form = () => { 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts)
+  const contacts = useSelector(state => state.contacts.items)
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -39,10 +39,10 @@ export const Form = () => {
     const contact = {
       id: nanoid(),
       name: name,
-      number: number,
+      phone: number,
     }
-    
-    dispatch(addContact(contact))
+  
+    dispatch(contactsOperations.addContacts(contact));
     fullReset()
   }
 

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { deleteContact } from 'redax/contacts.slice';
+import * as contactsOperations from '../../redax/contacts/contactsOperations'
 import PropTypes from 'prop-types';
 import { StyledLi, StyledP, StyledButton } from './contactsList.styled'
 
@@ -8,7 +8,7 @@ const ContactListItem = ({ name, number, id }) => {
   return (
     <StyledLi key={id}><StyledP>{name}:</StyledP>
         <StyledP>{number}</StyledP>
-        <StyledButton type='button' onClick={() => dispatch(deleteContact(id))}>delete</StyledButton>
+        <StyledButton type='button' onClick={() => dispatch(contactsOperations.deleteContacts(id))}>delete</StyledButton>
     </StyledLi>
   );
 };
